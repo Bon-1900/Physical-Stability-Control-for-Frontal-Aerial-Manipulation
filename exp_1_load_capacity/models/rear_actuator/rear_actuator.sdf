@@ -47,5 +47,51 @@
       <velocity_decay/>
     </link>
 
-  </model>
-</sdf>
+    <link name='moving_block_link'>
+      <pose>0 0.039 0.155 0 -1.57 3.14</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+      </inertial>
+      <collision name='moving_block_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/Assembly_Moving-Block_convex-hull.obj</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='moving_block_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://meshes/Assembly_Moving-Block.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+
+    </model>
+  </sdf>
