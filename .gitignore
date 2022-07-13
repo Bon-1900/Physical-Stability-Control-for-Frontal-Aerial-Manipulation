@@ -217,3 +217,5 @@ cython_debug/
 # Project specific
 mavlink/
 mavros/
+.rosinstall
+.rosinstall.bak
