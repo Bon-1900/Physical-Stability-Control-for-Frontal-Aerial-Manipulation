@@ -6,20 +6,20 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>0.151</mass>
         <inertia>
-          <ixx>0.004</ixx>
+          <ixx>1.733e-3</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.004</iyy>
-          <iyz>0</iyz>
-          <izz>0</izz>
+          <iyy>1.711E-3</iyy>
+          <iyz>-1.007E-4</iyz>
+          <izz>4.3106E-5</izz>
         </inertia>
       </inertial>
-      <collision name='rear_actuator_inertia_collision'>
+      <collision name='rear_actuator_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://meshes/Assembly_Linear-Actuator-Fixed-Parts.obj</uri>
+            <uri>model://meshes/Assembly_Linear-Actuator-Fixed-Parts_convex-hull.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -34,7 +34,7 @@
           </friction>
         </surface>
       </collision>
-      <visual name='rear_actuator_inertia_visual'>
+      <visual name='rear_actuator_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -48,26 +48,28 @@
     </link>
 
     <link name='moving_block_link'>
-      <pose>0 0.039 0.155 0 -1.57 3.14</pose>
+      <!-- defualt pose: 0 0.015 0.17 0 0 0 -->
+      <!-- change z-value to change block position on the actuator -->
+      <pose>0 0.03 0.2 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.001</mass>
+        <mass>0.333</mass>
         <inertia>
-          <ixx>0</ixx>
+        <!-- I=1/12*m*(l^2+w^2)= 1.5e-04*m-->
+          <ixx>5e-05</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0</iyy>
+          <iyy>5e-05</iyy>
           <iyz>0</iyz>
-          <izz>0</izz>
+          <izz>5e-05</izz>
         </inertia>
       </inertial>
       <collision name='moving_block_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://meshes/Assembly_Moving-Block_convex-hull.obj</uri>
-          </mesh>
+          <box>
+            <size>0.03 0.03 0.03</size>
+          </box>
         </geometry>
         <surface>
           <contact>
@@ -84,14 +86,19 @@
       <visual name='moving_block_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://meshes/Assembly_Moving-Block.obj</uri>
-          </mesh>
+          <box>
+            <size>0.03 0.03 0.03</size>
+          </box>
         </geometry>
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
+    </link>
 
-    </model>
-  </sdf>
+    <joint name="rear_actuator_joint" type="fixed">     
+      <parent>fixed_part_link</parent>
+      <child>moving_block_link</child>
+    </joint>
+
+  </model>
+</sdf>

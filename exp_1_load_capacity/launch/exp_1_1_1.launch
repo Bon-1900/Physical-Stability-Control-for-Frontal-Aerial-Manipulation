@@ -13,9 +13,9 @@
     <arg name="est" default="ekf2"/>
     <arg name="vehicle" default="iris"/>
     <arg name="world" default="/usr/share/gazebo-11/worlds/empty.world"/>
-    <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/$(arg vehicle)/$(arg vehicle).sdf"/>
+    <!-- <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/$(arg vehicle)/$(arg vehicle).sdf"/> -->
     <!-- <arg name="sdf" default="$(find exp_1_load_capacity)/models/iris_linear_actuator/iris_linear_actuator.sdf"/> -->
-    <!-- <arg name="sdf" default="$(find exp_1_load_capacity)/models/iris_load/iris_load.sdf"/> -->
+        <arg name="sdf" default="$(find exp_1_load_capacity)/models/iris_load/iris_load.sdf"/>
 
     <!-- gazebo configs -->
     <arg name="gui" default="true"/>
@@ -55,7 +55,7 @@
     </include>
 
     <!-- Off board node -->
-    <node name="off_node" pkg="exp_1_load_capacity" type="offb_node" output="screen"/>
+    <node name="offb_node" pkg="exp_1_load_capacity" type="exp_1_load_capacity_node" output="screen"/>
 
 
 </launch>
