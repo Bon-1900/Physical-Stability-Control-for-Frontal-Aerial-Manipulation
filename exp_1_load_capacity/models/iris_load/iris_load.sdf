@@ -14,14 +14,14 @@
       <inertial>
       <!-- I=1/12*m*(l^2+w^2)= 1.667e-3*m -->
         <pose>0 0 0 0 0 0</pose>
-        <mass>1.2</mass>
+        <mass>1.3</mass>
         <inertia>
-          <ixx>2.004e-03</ixx>
+          <ixx>2.1671e-03</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>2.004e-03</iyy>
+          <iyy>2.1671e-03</iyy>
           <iyz>0</iyz>
-          <izz>2.004e-03</izz>
+          <izz>2.1671e-03</izz>
         </inertia>
       </inertial>
       <collision name="test_load_collision">

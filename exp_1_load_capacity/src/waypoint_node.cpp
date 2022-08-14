@@ -57,10 +57,13 @@ int main(int argc, char **argv)
     pose4.pose.position.y = 2;
     pose4.pose.position.z = 2;
 
-    int waypoint_num = 7;
     int i_waypoint = -1;
+    int waypoint_num = 7;
     geometry_msgs::PoseStamped waypoints_list[waypoint_num] =
         {pose1, pose2, pose3, pose4, pose1, pose3, pose1};
+    // for hovering task
+    // int waypoint_num = 1;
+    // geometry_msgs::PoseStamped waypoints_list[waypoint_num] = {pose1};
 
     // send a few setpoints before starting
     for (int i = 100; ros::ok() && i > 0; --i)
@@ -125,7 +128,7 @@ int main(int argc, char **argv)
         if (t_span > ros::Duration(i_waypoint * t_interval + t_offset) && i_waypoint < waypoint_num - 1 && is_initialised)
         {
             i_waypoint++;
-            ROS_INFO("Directing to waypoint %d: (%.1f, %.1f, %.1f)", (i_waypoint+1),
+            ROS_INFO("Directing to waypoint %d: (%.1f, %.1f, %.1f)", i_waypoint+1,
                      waypoints_list[i_waypoint].pose.position.x,
                      waypoints_list[i_waypoint].pose.position.y,
                      waypoints_list[i_waypoint].pose.position.z);

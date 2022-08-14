@@ -15,12 +15,15 @@
         </inertia>
       </inertial>
       <collision name='front_actuator_collision'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0.26 0 0 0</pose>
         <geometry>
-          <mesh>
+          <!-- <mesh>
             <scale>1 1 1</scale>
             <uri>model://meshes/Assembly_Linear-Actuator-Fixed-Parts_convex-hull.dae</uri>
-          </mesh>
+          </mesh> -->
+          <box>
+            <size>0.07 0.07 0.52</size>
+          </box>
         </geometry>
         <surface>
           <contact>
@@ -50,18 +53,18 @@
     <link name='moving_block_link'>
       <!-- defualt pose: 0 0.015 0.17 0 0 0 -->
       <!-- change z-value to change block position on the actuator -->
-      <pose>0 0.03 0.2 0 0 0</pose>
+      <pose>0 0.03 0.35 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.333</mass>
+        <mass>0.25</mass>
         <inertia>
         <!-- I=1/12*m*(l^2+w^2)= 1.5e-04*m-->
-          <ixx>5e-05</ixx>
+          <iyy>0.375e-04</iyy>
+          <ixx>0.375e-04</ixx>
+          <izz>0.375e-04</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>5e-05</iyy>
           <iyz>0</iyz>
-          <izz>5e-05</izz>
         </inertia>
       </inertial>
       <collision name='moving_block_collision'>
