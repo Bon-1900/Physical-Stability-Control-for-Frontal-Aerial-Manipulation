@@ -50,18 +50,18 @@
       <velocity_decay/>
     </link>
 
-    <link name='moving_block_link'>
+    <!-- <link name='moving_block_link'> -->
       <!-- defualt pose: 0 0.015 0.17 0 0 0 -->
       <!-- change z-value to change block position on the actuator -->
-      <pose>0 0.03 0.35 0 0 0</pose>
+      <!-- <pose>0 0.03 0.35 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.25</mass>
-        <inertia>
+        <mass>0.225</mass>
+        <inertia> -->
         <!-- I=1/12*m*(l^2+w^2)= 1.5e-04*m-->
-          <iyy>0.375e-04</iyy>
-          <ixx>0.375e-04</ixx>
-          <izz>0.375e-04</izz>
+          <!-- <iyy>0.3375e-04</iyy>
+          <ixx>0.3375e-04</ixx>
+          <izz>0.3375e-04</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>
@@ -101,7 +101,7 @@
     <joint name="front_actuator_joint" type="fixed">     
       <parent>fixed_part_link</parent>
       <child>moving_block_link</child>
-    </joint>
+    </joint> -->
 
   </model>
 </sdf>

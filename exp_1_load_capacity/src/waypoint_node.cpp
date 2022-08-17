@@ -58,12 +58,12 @@ int main(int argc, char **argv)
     pose4.pose.position.z = 2;
 
     int i_waypoint = -1;
-    int waypoint_num = 7;
-    geometry_msgs::PoseStamped waypoints_list[waypoint_num] =
-        {pose1, pose2, pose3, pose4, pose1, pose3, pose1};
+    // int waypoint_num = 7;
+    // geometry_msgs::PoseStamped waypoints_list[waypoint_num] =
+    //     {pose1, pose2, pose3, pose4, pose1, pose3, pose1};
     // for hovering task
-    // int waypoint_num = 1;
-    // geometry_msgs::PoseStamped waypoints_list[waypoint_num] = {pose1};
+    int waypoint_num = 1;
+    geometry_msgs::PoseStamped waypoints_list[waypoint_num] = {pose1};
 
     // send a few setpoints before starting
     for (int i = 100; ros::ok() && i > 0; --i)

@@ -55,7 +55,8 @@
     </include>
 
     <!-- Waypoint node -->
-    <node name="waypoint_node" pkg="exp_1_load_capacity" type="exp_1_load_capacity_node" output="screen"/>
+    <!-- <node name="waypoint_spd_node" pkg="exp_1_load_capacity" type="waypoint_spd_node" output="screen"/> -->
+    <node name="waypoint_node" pkg="exp_1_load_capacity" type="waypoint_node" output="screen"/>
 
 
 </launch>

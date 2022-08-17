@@ -1,6 +1,6 @@
 #!/bin/bash
 # NOTE : Quote it else use array to avoid problems #
-FILES="$HOME/Documents/QGroundControl Daily/Logs/exp1.2.4"
+FILES="$HOME/Documents/QGroundControl Daily/Logs/exp1.2.5"
 cd "$FILES"
 for FILE in *
 do
