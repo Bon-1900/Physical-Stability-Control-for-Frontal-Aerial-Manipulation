@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node name="arduino_servo_publisher" pkg="arduino_servo_publisher" type="arduino_servo_publisher" output="screen"/>
+
+    <!-- <node name="arduino_connecter" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyACM0" output="screen" /> -->
+</launch>

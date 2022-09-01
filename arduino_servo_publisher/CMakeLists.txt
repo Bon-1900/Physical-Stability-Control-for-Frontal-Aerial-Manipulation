@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(exp_1_load_capacity)
+project(arduino_servo_publisher)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,12 +8,11 @@ project(exp_1_load_capacity)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
   geometry_msgs
   mavros_msgs
-  nav_msgs
-  std_msgs 
+  roscpp
+  rospy
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -73,7 +72,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
+#   geometry_msgs#   mavros_msgs#   std_msgs
 # )
 
 ################################################
@@ -107,8 +106,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES test_1_load_capacity
-#  CATKIN_DEPENDS roscpp rospy
+#  LIBRARIES arduino_servo_publisher
+#  CATKIN_DEPENDS geometry_msgs mavros_msgs roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -125,7 +124,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/1_load_capacity_test.cpp
+#   src/${PROJECT_NAME}/arduino_servo_publisher.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -136,19 +135,8 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/1_load_capacity_test_node.cpp)
-add_executable(
-  waypoint_node src/waypoint_node.cpp)
-add_executable(
-  waypoint_spd_node src/waypoint_spd_node.cpp)
-add_executable( 
-  offb_node src/offb_node.cpp )
-  add_executable(
-    neptune_waypoint_node src/neptune_waypoint_node.cpp)
-  add_executable(
-    neptune_waypoint_spd_node src/neptune_waypoint_spd_node.cpp)
-  add_executable( 
-    neptune_offb_node src/neptune_offb_node.cpp )
+add_executable(arduino_servo_publisher src/arduino_servo_pub.cpp)
+# add_executable(arduino_connector src/arduino_connect.sh)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -161,18 +149,12 @@ add_executable(
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(
-  waypoint_node ${catkin_LIBRARIES} )
-target_link_libraries(
-  waypoint_spd_node ${catkin_LIBRARIES} ) 
-target_link_libraries(
-  offb_node ${catkin_LIBRARIES} )
-target_link_libraries(
-  neptune_waypoint_node ${catkin_LIBRARIES} )
-target_link_libraries(
-  neptune_waypoint_spd_node ${catkin_LIBRARIES} ) 
-target_link_libraries(
-  neptune_offb_node ${catkin_LIBRARIES} )
+target_link_libraries(arduino_servo_publisher
+  ${catkin_LIBRARIES}
+)
+# target_link_libraries(arduino_servo_publisher
+#   ${catkin_LIBRARIES}
+# )
 
 #############
 ## Install ##
@@ -221,7 +203,7 @@ target_link_libraries(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_1_load_capacity_test.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_arduino_servo_publisher.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
