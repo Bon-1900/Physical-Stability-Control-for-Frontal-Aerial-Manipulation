@@ -39,9 +39,9 @@ int main(int argc, char **argv)
 
     // set waypoints
     geometry_msgs::PoseStamped pose0;
-    pose0.pose.position.x = 1.0;
-    pose0.pose.position.y = 0.5;
-    pose0.pose.position.z = 2.0;
+    pose0.pose.position.x = 0;
+    pose0.pose.position.y = 0;
+    pose0.pose.position.z = 0;
 
     geometry_msgs::PoseStamped pose1;
     pose1.pose.position.x = 0;
@@ -49,12 +49,12 @@ int main(int argc, char **argv)
     pose1.pose.position.z = 1;
 
     geometry_msgs::PoseStamped pose2;
-    pose2.pose.position.x = 1;
+    pose2.pose.position.x = 2;
     pose2.pose.position.y = 0;
     pose2.pose.position.z = 1;
 
     geometry_msgs::PoseStamped pose3;
-    pose3.pose.position.x = 1;
+    pose3.pose.position.x = 2;
     pose3.pose.position.y = 1;
     pose3.pose.position.z = 1;
 

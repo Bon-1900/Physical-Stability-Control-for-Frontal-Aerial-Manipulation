@@ -32,7 +32,7 @@ int main(int argc, char **argv)
     geometry_msgs::PoseStamped pose0;
     pose0.pose.position.x = 1.0;
     pose0.pose.position.y = 0.5;
-    pose0.pose.position.z = 2.0;
+    pose0.pose.position.z = 0.0;
 
     geometry_msgs::PoseStamped pose1;
     pose1.pose.position.x = 1.0;
