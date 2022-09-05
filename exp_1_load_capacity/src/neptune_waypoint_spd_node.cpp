@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 
 
     // set speed
-    const int spd_scl_factor = 6;
+    const int spd_scl_factor = 8;
     geometry_msgs::TwistStamped spd_sp;
     // spd_sp.twist.linear.z = 0.2;
 
@@ -65,7 +65,7 @@ int main(int argc, char **argv)
 
     int i_waypoint = -1;
     const int waypoint_num = 8;
-    geometry_msgs::PoseStamped waypoints_list[] =
+    geometry_msgs::PoseStamped waypoints_list[waypoint_num] =
         {pose0, pose1, pose2, pose3, pose4, pose1, pose3, pose1};
 
     mavros_msgs::SetMode offb_set_mode;
@@ -76,11 +76,15 @@ int main(int argc, char **argv)
     int t_interval = 8;
     int t_offset = 5;
 
+    bool is_initialised = false;
     bool is_landing = false;
 
     while (ros::ok())
     {
-        
+        if (!is_initialised){
+            mission_start_time = ros::Time::now();        
+            is_initialised = true;
+        }  
         t_span = ros::Time::now() - mission_start_time;
         // ROS_INFO("t_span: %d", t_span);
 

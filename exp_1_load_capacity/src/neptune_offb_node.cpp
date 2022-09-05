@@ -30,14 +30,14 @@ int main(int argc, char **argv)
     ros::Rate rate(10.0);
 
     geometry_msgs::PoseStamped pose0;
-    pose0.pose.position.x = 1.0;
-    pose0.pose.position.y = 0.5;
-    pose0.pose.position.z = 0.0;
+    pose0.pose.position.x = 0;
+    pose0.pose.position.y = 0;
+    pose0.pose.position.z = 0;
 
     geometry_msgs::PoseStamped pose1;
-    pose1.pose.position.x = 1.0;
-    pose1.pose.position.y = 0.5;
-    pose1.pose.position.z = 1.0;
+    pose1.pose.position.x = 0;
+    pose1.pose.position.y = 0;
+    pose1.pose.position.z = 1;
 
     int i_waypoint = -1;
     const int waypoint_num = 2;
@@ -51,10 +51,15 @@ int main(int argc, char **argv)
     int t_interval = 8;
     int t_offset = 5;
 
+    bool is_initialised = false;
     bool is_landing = false;
 
     while (ros::ok())
     {
+        if (!is_initialised){
+            mission_start_time = ros::Time::now();        
+            is_initialised = true;
+        }
 
         t_span = ros::Time::now() - mission_start_time;
         // ROS_INFO("t_span: %d", t_span);

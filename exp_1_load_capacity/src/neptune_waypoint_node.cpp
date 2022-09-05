@@ -56,9 +56,9 @@ int main(int argc, char **argv)
     pose4.pose.position.z = 1;
 
     int i_waypoint = -1;
-    int waypoint_num = 7;
+    int waypoint_num = 8;
     geometry_msgs::PoseStamped waypoints_list[waypoint_num] =
-        {pose1, pose2, pose3, pose4, pose1, pose3, pose1};
+        {pose0, pose1, pose2, pose3, pose4, pose1, pose3, pose1};
     // for hovering task
     // int waypoint_num = 1;
     // geometry_msgs::PoseStamped waypoints_list[waypoint_num] = {pose1};
@@ -71,11 +71,15 @@ int main(int argc, char **argv)
     int t_interval = 8;
     int t_offset = 5;
 
+    bool is_initialised = false;
     bool is_landing = false;
 
     while (ros::ok())
     {
-
+        if (!is_initialised){
+            mission_start_time = ros::Time::now();        
+            is_initialised = true;
+        }
         t_span = ros::Time::now() - mission_start_time;
         // ROS_INFO("t_span: %d", t_span);
 
