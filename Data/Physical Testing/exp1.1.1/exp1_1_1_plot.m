@@ -4,7 +4,7 @@ close all;
 
 %% Process Data
 t_start = 2;
-t_end   = 14.5;
+t_end   = 11;
 bag_paths = dir('*.bag');
 for i_bag_paths = 1:length(bag_paths)
     [data_mat, sp_mat] = process_data (bag_paths(i_bag_paths).name, 0, 100);

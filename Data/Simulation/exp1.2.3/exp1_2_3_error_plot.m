@@ -458,11 +458,11 @@ saveas(gcf,'Plots/exp1.2.3_comparison_load_configs.jpg')
 
 % Temporarily hide plot
 % set(stem_1, 'visible', 'off')
-% set(stem_2, 'visible', 'off')
-% set(stem_3, 'visible', 'off')
+set(stem_2, 'visible', 'off')
+set(stem_3, 'visible', 'off')
 % set(stem_4, 'visible', 'off')
-% set(stem_5, 'visible', 'off')
-% set(stem_6, 'visible', 'off')
+set(stem_5, 'visible', 'off')
+set(stem_6, 'visible', 'off')
 
 
 %% HELPER FUNCS
