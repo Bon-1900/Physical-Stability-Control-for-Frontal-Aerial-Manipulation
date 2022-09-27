@@ -1,7 +1,6 @@
 /**
- * @file offb_node.cpp
- * @brief Offboard control example node, written with MAVROS version 0.19.x, PX4 Pro Flight
- * Stack and tested in Gazebo SITL
+ * @file waypoint_spd_node.cpp
+ * @brief Waypoint and speed control node
  */
 
 #include <ros/ros.h>

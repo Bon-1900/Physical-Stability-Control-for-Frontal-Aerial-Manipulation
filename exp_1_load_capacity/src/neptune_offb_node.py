@@ -1,3 +1,7 @@
+"""
+Takeoff control node for Neptune & UCL AML Arena
+"""
+
 import rospy
 from geometry_msgs.msg import PoseStamped
 
@@ -9,10 +13,7 @@ rate = rospy.Rate(10)
 
 pub = rospy.Publisher('/neptune/mavros/setpoint_position/local', PoseStamped, queue_size=10)
 
-
-
 for i in range (100):
-
 
     waypoint.pose.position.x = 1
     waypoint.pose.position.y = 0.5
