@@ -23,3 +23,4 @@ For more information, please refer to [Bon-1900/MSc_Thesis.git](https://github.c
 - PX4 Suite 1.12.3
 - MAVROS
 - Gazebo 11
+- MATLAB
